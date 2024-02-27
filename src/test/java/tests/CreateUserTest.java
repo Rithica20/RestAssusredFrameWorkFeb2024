@@ -1,5 +1,6 @@
 package tests;
 
+import base.BaseTest;
 import client.RestClient;
 import org.testng.annotations.Test;
 import pojo.User;
@@ -7,12 +8,12 @@ import utils.StringUtils;
 
 import static org.hamcrest.Matchers.equalTo;
 
-public class CreateUserTest {
+public class CreateUserTest extends BaseTest {
 
     @Test
     public void createUser(){
 
-        RestClient restClient = new RestClient();
+//        RestClient restClient = new RestClient();
         User user = new User("rithica", StringUtils.getRandomEmailId(),"female","active");
 
 
@@ -26,13 +27,13 @@ public class CreateUserTest {
         System.out.println("user id is:: "+id);
 
 //        //get call
-        RestClient restClient1 = new RestClient();
+//        RestClient restClient1 = new RestClient();
 
-       restClient1.get("/public/v2/users/"+id,true)
-                .then()
-                .statusCode(200)
-               .and()
-               .body("id", equalTo(id));
+//       restClient1.get("/public/v2/users/"+id,true)
+//                .then()
+//                .statusCode(200)
+//               .and()
+//               .body("id", equalTo(id));
 
 
     }

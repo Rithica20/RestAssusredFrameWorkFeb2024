@@ -8,6 +8,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import java.util.Map;
+import java.util.Properties;
 
 import static io.restassured.RestAssured.when;
 
@@ -15,14 +16,19 @@ public class RestClient {
     //1. to create different request specs --- RequestSpecification
     //2 . to create get and post request --- Response
 
-    private static final String BASE_URI = "https://gorest.co.in";
-    private static final String BEARER_TOKEN ="1f99558079902d51dd2c7e9ea67f4859509b01c2892b82d5ea6a9cf4fe07d0d4";
+    //moved to config.properties file
+//    private static final String BASE_URI = "https://gorest.co.in";
+//    private static final String BEARER_TOKEN ="1f99558079902d51dd2c7e9ea67f4859509b01c2892b82d5ea6a9cf4fe07d0d4";
 
     private static RequestSpecBuilder specbuilder;
+    Properties prop;
+    String baseURI;
 
-    public RestClient()
+    public RestClient(Properties prop,String baseURI)
     {
         specbuilder = new RequestSpecBuilder();
+        this.prop = prop;
+        this.baseURI = baseURI;
     }
     //Replaced static block with constructor as static block creates one reference in CMA memory and keeps it same and coz of this authorization is added multiple times
 ////creating static block because static block execute whenever we create object like constructor it works
@@ -30,7 +36,7 @@ public class RestClient {
 //        specbuilder = new RequestSpecBuilder();
 //    }
     private void addAuthorizationHeader(){
-        specbuilder.addHeader("Authorization","Bearer "+BEARER_TOKEN);
+        specbuilder.addHeader("Authorization","Bearer "+prop.getProperty("tokenID"));
     }
     private void setContentType(String contentType) {
         switch (contentType.toLowerCase()) {
@@ -54,13 +60,15 @@ public class RestClient {
     //for get call
     //spec ---- base uri + authorization header
     private RequestSpecification createRequestSpec(){
-        specbuilder.setBaseUri(BASE_URI);
+//        specbuilder.setBaseUri(BASE_URI);
+        specbuilder.setBaseUri(baseURI);
         addAuthorizationHeader();
         return specbuilder.build();
     }
     //spec --- base uri + authorization header + multiple headers
     private RequestSpecification createRequestSpec(Map<String,String> headersMap){
-        specbuilder.setBaseUri(BASE_URI);
+//        specbuilder.setBaseUri(BASE_URI);
+        specbuilder.setBaseUri(baseURI);
         addAuthorizationHeader();
         if(headersMap!=null){
             specbuilder.addHeaders(headersMap);
@@ -69,7 +77,8 @@ public class RestClient {
     }
     //spec --- base uri + authorization header + multiple headers + multiple queryparams
     private RequestSpecification createRequestSpec(Map<String,String> headersMap,Map<String,String> multiQueryParam){
-        specbuilder.setBaseUri(BASE_URI);
+//        specbuilder.setBaseUri(BASE_URI);
+        specbuilder.setBaseUri(baseURI);
         addAuthorizationHeader();
         if(headersMap!=null){
             specbuilder.addHeaders(headersMap);
@@ -84,7 +93,8 @@ public class RestClient {
     //-content type = json/xml/mutipart/text
     //query param - NOT NEEDED
     private RequestSpecification createRequestSpec(Object requestbody,String contentType){
-        specbuilder.setBaseUri(BASE_URI);
+//        specbuilder.setBaseUri(BASE_URI);
+        specbuilder.setBaseUri(baseURI);
         addAuthorizationHeader();
         //specbuilder.setContentType(contentType); -- wrong approach
         setContentType(contentType);
@@ -94,7 +104,8 @@ public class RestClient {
         return specbuilder.build();
     }
     private RequestSpecification createRequestSpec(Object requestbody,String contentType,Map<String,String> headersMap){
-        specbuilder.setBaseUri(BASE_URI);
+//        specbuilder.setBaseUri(BASE_URI);
+        specbuilder.setBaseUri(baseURI);
         addAuthorizationHeader();
         //specbuilder.setContentType(contentType); -- wrong approach
         setContentType(contentType);
