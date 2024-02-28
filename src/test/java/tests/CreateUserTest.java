@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import client.RestClient;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pojo.User;
 import utils.StringUtils;
@@ -10,6 +11,10 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class CreateUserTest extends BaseTest {
 
+    @BeforeMethod
+    public void create() {
+        restClient = new RestClient(prop, baseURI);
+    }
     @Test
     public void createUser(){
 
@@ -18,7 +23,7 @@ public class CreateUserTest extends BaseTest {
 
 
 
-        Integer id = restClient.post("/public/v2/users","json",user,true)
+        Integer id = restClient.post("/public/v2/users","json",user,true,true)
                 .then().log().all()
                 .statusCode(201)
                 .extract()

@@ -1,0 +1,1 @@
+{"uuid":"95dc1d62-03b3-4868-abc1-ac7a8b966a96","name":"tests.CircuitTest.create","children":["f23bef04-dc6b-4c96-8c39-371f73ec83bd"],"description":"","befores":[{"name":"create","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1709120115173,"stop":1709120115673}],"afters":[],"start":1709120115173,"stop":1709120115674}
