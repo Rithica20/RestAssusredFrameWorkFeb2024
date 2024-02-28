@@ -15,6 +15,9 @@ public class BaseTest {
     protected ConfigurationManager configManager;
     protected String baseURI;
 
+    public final static String GOREST_ENDPOINT = "/public/v2/users";
+    public final static String CIRCUITTEST_ENDPOINT = "/api/f1";
+
     @BeforeTest
     @Parameters({"baseURI"})
     public void setup(String baseURI) {

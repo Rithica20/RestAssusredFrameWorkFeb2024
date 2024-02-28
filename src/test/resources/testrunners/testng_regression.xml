@@ -22,21 +22,21 @@
     </test>
      -->
 
-<!--    <test name="Go Rest API Test">-->
-<!--        <parameter name="baseURI" value="https://gorest.co.in" />-->
+    <test name="Go Rest API Test">
+        <parameter name="baseURI" value="https://gorest.co.in" />
 
-<!--        <classes>-->
-<!--            <class name="tests.GetUserTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
+        <classes>
+            <class name="tests.GetUserTest" />
+        </classes>
+    </test>
 
-<!--    <test name="Circuit API Test">-->
-<!--        <parameter name="baseURI" value="http://ergast.com" />-->
+    <test name="Circuit API Test">
+        <parameter name="baseURI" value="http://ergast.com" />
 
-<!--        <classes>-->
-<!--            <class name="tests.CircuitTest" />-->
-<!--        </classes>-->
-<!--    </test>-->
+        <classes>
+            <class name="tests.CircuitTest" />
+        </classes>
+    </test>
 
      <test name="Go Rest API Create User Test">
         <parameter name="baseURI" value="https://gorest.co.in" />

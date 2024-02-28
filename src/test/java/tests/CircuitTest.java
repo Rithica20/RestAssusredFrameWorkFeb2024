@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import client.RestClient;
+import constants.APIHttpStatus;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -14,8 +15,8 @@ public class CircuitTest extends BaseTest {
     @Test
     public void getAllUsers() {
 
-        restClient.get("/api/f1/2017/circuits.json", true,false)
+        restClient.get(CIRCUITTEST_ENDPOINT+"/2017/circuits.json", true,false)
                 .then().log().all()
-                .statusCode(200);
+                .statusCode(APIHttpStatus.OK_200.getCode());
     }
 }

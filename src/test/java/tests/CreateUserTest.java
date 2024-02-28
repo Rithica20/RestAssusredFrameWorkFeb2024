@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import client.RestClient;
+import constants.APIHttpStatus;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pojo.User;
@@ -23,9 +24,9 @@ public class CreateUserTest extends BaseTest {
 
 
 
-        Integer id = restClient.post("/public/v2/users","json",user,true,true)
+        Integer id = restClient.post(GOREST_ENDPOINT,"json",user,true,true)
                 .then().log().all()
-                .statusCode(201)
+                .statusCode(APIHttpStatus.CREATED_201.getCode())
                 .extract()
                 .path("id");
 

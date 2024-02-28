@@ -2,6 +2,7 @@ package tests;
 
 import base.BaseTest;
 import client.RestClient;
+import constants.APIHttpStatus;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -23,18 +24,18 @@ public class GetUserTest extends BaseTest {
     public void getAllUsers() {
 //        restClient = new RestClient();
 
-        restClient.get("/public/v2/users", true,true)
+        restClient.get(GOREST_ENDPOINT, true,true)
                 .then().log().all()
-                .statusCode(200);
+                .statusCode(APIHttpStatus.OK_200.getCode());
     }
     //5850425
     @Test(priority = 2)
     public void getSpecificUser() {
 //        restClient = new RestClient();
 
-        restClient.get("/public/v2/users/5850425", true,true)
+        restClient.get(GOREST_ENDPOINT+"/5850425", true,true)
                 .then().log().all()
-                .statusCode(200);
+                .statusCode(APIHttpStatus.OK_200.getCode());
 //                .and()
 //                .body("id",equalTo("5850425"));
     }
@@ -45,9 +46,9 @@ public class GetUserTest extends BaseTest {
         queryParams.put("gender", "female");
         queryParams.put("status", "active");
 
-        restClient.get( "/public/v2/users",queryParams, true, true)
+        restClient.get( GOREST_ENDPOINT,queryParams, true, true)
                 .then().log().all()
-                .statusCode(200);
+                .statusCode(APIHttpStatus.OK_200.getCode());
 
     }
 }
