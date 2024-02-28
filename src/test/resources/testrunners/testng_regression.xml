@@ -22,27 +22,34 @@
     </test>
      -->
 
-    <test name="Go Rest API Test">
-        <parameter name="baseURI" value="https://gorest.co.in" />
+<!--    <test name="Go Rest API Test">-->
+<!--        <parameter name="baseURI" value="https://gorest.co.in" />-->
 
+<!--        <classes>-->
+<!--            <class name="tests.GetUserTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Circuit API Test">-->
+<!--        <parameter name="baseURI" value="http://ergast.com" />-->
+
+<!--        <classes>-->
+<!--            <class name="tests.CircuitTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--     <test name="Go Rest API Create User Test">-->
+<!--        <parameter name="baseURI" value="https://gorest.co.in" />-->
+<!--        <classes>-->
+<!--            <class name="tests.CreateUserTest" />-->
+
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="fake store api get product test">
+        <parameter name="baseURI" value="https://fakestoreapi.com" />
         <classes>
-            <class name="tests.GetUserTest" />
-        </classes>
-    </test>
-
-    <test name="Circuit API Test">
-        <parameter name="baseURI" value="http://ergast.com" />
-
-        <classes>
-            <class name="tests.CircuitTest" />
-        </classes>
-    </test>
-
-     <test name="Go Rest API Create User Test">
-        <parameter name="baseURI" value="https://gorest.co.in" />
-        <classes>
-            <class name="tests.CreateUserTest" />
-
+<!--            <class name="tests.GetProductsTest" />-->
+            <class name="tests.CreateProductTest" />
         </classes>
     </test>
 

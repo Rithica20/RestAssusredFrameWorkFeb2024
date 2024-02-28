@@ -17,6 +17,7 @@ public class BaseTest {
 
     public final static String GOREST_ENDPOINT = "/public/v2/users";
     public final static String CIRCUITTEST_ENDPOINT = "/api/f1";
+    public final static String FAKESTORE_ENDPOINT = "/products";
 
     @BeforeTest
     @Parameters({"baseURI"})

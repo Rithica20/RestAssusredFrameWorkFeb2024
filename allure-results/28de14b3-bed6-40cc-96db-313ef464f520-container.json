@@ -1,0 +1,1 @@
+{"uuid":"28de14b3-bed6-40cc-96db-313ef464f520","name":"fake store api get product test","children":["fc6f900f-237e-4de4-9b08-d1c98ac47b98"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1709121660349,"stop":1709121660711}],"afters":[],"start":1709121660327,"stop":1709121662583}
